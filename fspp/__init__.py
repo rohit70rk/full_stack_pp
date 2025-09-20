@@ -1,14 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return render_template('index.html')  # home page
-
-@app.route("/projects")
-def projects():
-    return render_template('projects.html')  # projects page
-
-if __name__ == '__main__':
-    app.run(debug=True)
+# Import routes AFTER app is created to avoid circular import
+from fspp import routes
