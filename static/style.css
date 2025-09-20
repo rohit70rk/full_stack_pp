@@ -104,3 +104,14 @@ footer {
   padding: 20px 0;
   margin-top: 20px;
 }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #0077cc;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 5px;
+}
