@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}My Experience - Rohit Kumar{% endblock %}
+
+{% block content %}
+<section id="experience">
+    <div class="container">
+        <h2>My Journey</h2>
+        <p style="max-width: 600px; margin: -20px auto 40px auto; color: var(--text-secondary);">
+            A timeline of my professional experience, academic projects, and leadership roles.
+        </p>
+
+        <div class="timeline">
+            <!-- Timeline Item 1: Internship -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Summer 2024</div>
+                <div class="timeline-content">
+                    <h3>Software Engineer Intern, Tech Solutions Inc.</h3>
+                    <p>Contributed to the development of a customer-facing analytics dashboard using React and Flask. I was responsible for building three new data visualization components and integrating them with the backend API, which helped clients better understand their usage patterns.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 2: University Project -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2023 - 2024</div>
+                <div class="timeline-content">
+                    <h3>Final Year Project: IoT Smart Home Hub</h3>
+                    <p>Led a team of three to design and build a custom IoT hub using a Raspberry Pi. My primary role involved developing the backend Flask server, designing the REST API for device communication, and implementing the MQTT protocol for real-time messaging.</p>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 3: Leadership Role -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2022 - Present</div>
+                <div class="timeline-content">
+                    <h3>Webmaster, University Coding Club</h3>
+                    <p>Maintain and update the official club website built with Django. Organized and led a workshop on "Introduction to Git & GitHub" for over 50 junior students, increasing club engagement.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

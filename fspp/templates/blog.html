@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}My Blog - Rohit Kumar{% endblock %}
+
+{% block content %}
+<section id="blog">
+    <div class="container">
+        <h2>Writing & Articles</h2>
+        <p style="max-width: 600px; margin: -20px auto 40px auto; color: var(--text-secondary);">
+            I believe in documenting my journey. Here are some articles I've written about technology and projects I've worked on.
+        </p>
+
+        <div class="blog-grid">
+            <!-- Blog Post Card 1 -->
+            <div class="blog-post-card">
+                <p class="blog-date">September 15, 2025</p>
+                <h3>How I Built This Portfolio with Flask and AWS</h3>
+                <p class="blog-excerpt">A deep dive into the architecture of this website, from the Flask backend and Jinja2 templates to deploying it on an AWS EC2 instance with Gunicorn and Nginx...</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </div>
+            
+            <!-- Blog Post Card 2 -->
+            <div class="blog-post-card">
+                <p class="blog-date">August 22, 2025</p>
+                <h3>Solving the N+1 Problem in SQLAlchemy</h3>
+                <p class="blog-excerpt">During the development of a recent project, I encountered a major performance bottleneck. Here’s how I identified and fixed the N+1 query problem using eager loading...</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </div>
+
+            <!-- Blog Post Card 3 -->
+            <div class="blog-post-card">
+                <p class="blog-date">July 05, 2025</p>
+                <h3>An Introduction to the MQTT Protocol for IoT</h3>
+                <p class="blog-excerpt">Why is MQTT so effective for Internet of Things devices? This post breaks down the publish-subscribe pattern and shows a simple implementation using Python...</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
