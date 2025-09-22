@@ -5,17 +5,43 @@
 {% block content %}
 <section id="projects">
   <div class="container">
-    <h2>Projects</h2>
+    <h2>All Projects</h2>
+    <p style="max-width: 600px; margin: -20px auto 40px auto; color: var(--text-secondary);">
+        Here is a complete collection of my work, showcasing my skills in different areas of development.
+    </p>
+
     <div class="project-grid">
       <div class="project-card">
-        <h3>Project 1</h3>
-        <p>Short description of project 1.</p>
-        <a href="#">View Project</a>
+        <h3>Project 1 Title</h3>
+        <p>A short, engaging description of this project and the tech used.</p>
+        <a href="{{ url_for('project_detail', project_id=1) }}">View Details</a>
       </div>
       <div class="project-card">
-        <h3>Project 2</h3>
-        <p>Short description of project 2.</p>
-        <a href="#">View Project</a>
+        <h3>Project 2 Title</h3>
+        <p>A short, engaging description of this project and the tech used.</p>
+        <a href="{{ url_for('project_detail', project_id=2) }}">View Details</a>
+      </div>
+      
+      <div class="project-card">
+        <h3>Project 3 Title</h3>
+        <p>A short, engaging description of this project and the tech used.</p>
+        <a href="#">View Details</a>
+      </div>
+       <div class="project-card">
+        <h3>Project 4 Title</h3>
+        <p>A short, engaging description of this project and the tech used.</p>
+        <a href="#">View Details</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Project 5 Title</h3>
+        <p>A short, engaging description of this project and the tech used.</p>
+        <a href="#">View Details</a>
+      </div>
+       <div class="project-card">
+        <h3>Project 6: New Project</h3>
+        <p>A short, engaging description of this project and the tech used.</p>
+        <a href="#">View Details</a>
       </div>
     </div>
   </div>

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - Rohit Kumar{% endblock %}
+
+{% block content %}
+<section id="registration">
+  <div class="container">
+    <h2>Registration Form (Project Placeholder)</h2>
+    <p>This page will eventually show the details of a specific project.</p>
+    <form action="#" method="POST" style="margin-top: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;">
+      <div style="margin-bottom: 15px;">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" style="width: 100%; padding: 8px;">
+      </div>
+      <div style="margin-bottom: 15px;">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" style="width: 100%; padding: 8px;">
+      </div>
+      <div style="margin-bottom: 15px;">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" style="width: 100%; padding: 8px;">
+      </div>
+      <button type="submit" class="btn">Register</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

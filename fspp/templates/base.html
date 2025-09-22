@@ -1,33 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Rohit Kumar - Portfolio{% endblock %}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Rohit Kumar - Portfolio{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div class="site-wrapper">
+        <!-- Mobile Header & Hamburger Menu Button -->
+        <header class="mobile-header">
+            <div class="mobile-logo">Rohit Kumar</div>
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </header>
 
-  <!-- Header / Navigation -->
-  <header>
-    <div class="container">
-      <h1>Rohit Kumar</h1>
-      <nav>
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('projects') }}">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a href="{{ url_for('static', filename='resume.pdf') }}" class="btn" download>Resume</a>
-      </nav>
+        <!-- Sidebar Navigation (Used for both Desktop and Mobile) -->
+        <nav class="sidebar-nav">
+            <div class="sidebar-header">
+                <h3>Rohit Kumar</h3>
+                <p>Full Stack Developer</p>
+            </div>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('home') }}#about">About</a></li>
+                <li><a href="{{ url_for('home') }}#experience">Experience</a></li>
+                <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                <li><a href="{{ url_for('home') }}#skills">Skills</a></li>
+                <li><a href="{{ url_for('home') }}#contact">Contact</a></li>
+            </ul>
+            <a href="{{ url_for('static', filename='resume.pdf') }}" class="btn-resume" download>Download Resume</a>
+        </nav>
+
+        <main class="main-content">
+            {% block content %}{% endblock %}
+            <footer>
+                <p>&copy; 2025 Rohit Kumar. All rights reserved.</p>
+            </footer>
+        </main>
     </div>
-  </header>
 
-  {% block content %}{% endblock %}
+    <!-- UPDATED JAVASCRIPT FOR NEW ANIMATION LOGIC -->
+    <script>
+        // Hamburger menu functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebarNav = document.querySelector('.sidebar-nav');
+        const mainContent = document.querySelector('.main-content');
+        const mobileLogo = document.querySelector('.mobile-logo');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('is-open');
+            sidebarNav.classList.toggle('is-open');
+            mainContent.classList.toggle('is-open');
+            mobileLogo.classList.toggle('is-open');
+            document.body.classList.toggle('nav-is-open');
+        });
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Rohit Kumar. All rights reserved.</p>
-  </footer>
-
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Close the mobile menu if it's open
+                if (sidebarNav.classList.contains('is-open')) {
+                    menuToggle.classList.remove('is-open');
+                    sidebarNav.classList.remove('is-open');
+                    mainContent.classList.remove('is-open');
+                    mobileLogo.classList.remove('is-open');
+                    document.body.classList.remove('nav-is-open');
+                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
+
