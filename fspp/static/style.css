@@ -176,7 +176,7 @@ a {
 }
 
 .sidebar-header p {
-  font-size: 0.9em;
+  font-size: 0.7em;
   color: var(--text-secondary);
   margin-top: 10px;
   line-height: 1.4;
@@ -508,8 +508,11 @@ a {
 /* --- Footer --- */
 footer {
   padding-top: 60px;
+  padding-left: 10%;
+  padding-right: 10%;
   text-align: center;
   color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
 }
 
 /* ==========================================================================
