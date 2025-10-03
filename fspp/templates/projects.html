@@ -6,43 +6,13 @@
 <section id="projects">
   <div class="container">
     <h2>All Projects</h2>
-    <p style="max-width: 600px; margin: -20px auto 40px auto; color: var(--text-secondary);">
+    <p class="page-subtitle">
         Here is a complete collection of my work, showcasing my skills in different areas of development.
     </p>
 
     <div class="project-grid">
-      <div class="project-card">
-        <h3>Project 1 Title</h3>
-        <p>A short, engaging description of this project and the tech used.</p>
-        <a href="{{ url_for('project_detail', project_id=1) }}">View Details</a>
-      </div>
-      <div class="project-card">
-        <h3>Project 2 Title</h3>
-        <p>A short, engaging description of this project and the tech used.</p>
-        <a href="{{ url_for('project_detail', project_id=2) }}">View Details</a>
-      </div>
-      
-      <div class="project-card">
-        <h3>Project 3 Title</h3>
-        <p>A short, engaging description of this project and the tech used.</p>
-        <a href="#">View Details</a>
-      </div>
-       <div class="project-card">
-        <h3>Project 4 Title</h3>
-        <p>A short, engaging description of this project and the tech used.</p>
-        <a href="#">View Details</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Project 5 Title</h3>
-        <p>A short, engaging description of this project and the tech used.</p>
-        <a href="#">View Details</a>
-      </div>
-       <div class="project-card">
-        <h3>Project 6: New Project</h3>
-        <p>A short, engaging description of this project and the tech used.</p>
-        <a href="#">View Details</a>
-      </div>
+      {# This single line now generates all your project cards #}
+      {% include '_project_list.html' %}
     </div>
   </div>
 </section>

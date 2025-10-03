@@ -505,6 +505,18 @@ a {
   border-color: var(--accent-color);
 }
 
+/* --- Helper Classes --- */
+.page-subtitle {
+  max-width: 600px;
+  margin: -20px auto 40px auto;
+  color: var(--text-secondary);
+}
+
+.cta-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
 /* --- Footer --- */
 footer {
   padding-top: 60px;

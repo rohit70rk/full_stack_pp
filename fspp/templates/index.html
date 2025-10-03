@@ -12,35 +12,12 @@
     <h2>Recent Work</h2>
     <div class="horizontal-scroll-wrapper">
         <div class="projects-container-horizontal">
-            <div class="project-card">
-                <h3>Project 1 Title</h3>
-                <p>A short, engaging description of this project and the tech used.</p>
-                <a href="{{ url_for('project_detail', project_id=1) }}">View Details</a>
-            </div>
-            <div class="project-card">
-                <h3>Project 2 Title</h3>
-                <p>A short, engaging description of this project and the tech used.</p>
-                <a href="{{ url_for('project_detail', project_id=2) }}">View Details</a>
-            </div>
-            <div class="project-card">
-                <h3>Project 3 Title</h3>
-                <p>A short, engaging description of this project and the tech used.</p>
-                <a href="#">View Details</a>
-            </div>
-            <div class="project-card">
-                <h3>Project 4 Title</h3>
-                <p>A short, engaging description of this project and the tech used.</p>
-                <a href="#">View Details</a>
-            </div>
-             <div class="project-card">
-                <h3>Project 5 Title</h3>
-                <p>A short, engaging description of this project and the tech used.</p>
-                <a href="#">View Details</a>
-            </div>
+            {# This uses the same file to generate the preview #}
+            {% include '_project_list.html' %}
         </div>
     </div>
     
-    <div style="text-align: center; margin-top: 40px;">
+    <div class="cta-container">
         <a href="{{ url_for('projects') }}" class="btn-resume">View All Projects</a>
     </div>
 </section>
