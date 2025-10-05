@@ -32,7 +32,7 @@ body.nav-is-open {
 }
 
 /* ==========================================================================
-   2. MOBILE & BASE LAYOUT
+   2. LAYOUT: SITE WRAPPER & NAVIGATION
    ========================================================================== */
 .site-wrapper {
   display: flex;
@@ -48,8 +48,8 @@ body.nav-is-open {
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  transform: skewX(-20deg);
   border: 1px solid var(--accent-color);
+  transform: skewX(-20deg);
 }
 
 .mobile-logo {
@@ -60,14 +60,8 @@ body.nav-is-open {
   color: var(--text-primary);
   transition: transform 0.4s ease, color 0.3s ease;
 }
-
-.mobile-logo:hover {
-  color: var(--accent-color);
-}
-
-.mobile-logo.is-open {
-  transform: scale(1.1) translateX(-15px);
-}
+.mobile-logo:hover { color: var(--accent-color); }
+.mobile-logo.is-open { transform: scale(1.1) translateX(-15px); }
 
 .menu-toggle {
   display: flex;
@@ -79,7 +73,6 @@ body.nav-is-open {
   cursor: pointer;
   z-index: 101;
 }
-
 .menu-toggle .bar {
   width: 25px;
   height: 3px;
@@ -87,25 +80,16 @@ body.nav-is-open {
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-.menu-toggle.is-open .bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.menu-toggle.is-open .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.is-open .bar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
+.menu-toggle.is-open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.is-open .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.is-open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 .sidebar-nav {
   position: fixed;
   top: 0;
   left: 0;
   width: var(--sidebar-width);
-  height: stretch;
+  height: 100%; /* FIXED: was 'stretch' */
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -115,7 +99,6 @@ body.nav-is-open {
   transform: translateX(-100%);
   transition: transform 0.4s cubic-bezier(0.78, 0.1, 0.3, 0.9);
 }
-
 .sidebar-nav.is-open {
   transform: translateX(0);
   box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
@@ -126,24 +109,18 @@ body.nav-is-open {
   padding: 1px 20px;
   transition: transform 0.4s cubic-bezier(0.78, 0.1, 0.3, 0.9);
 }
-
 @media (max-width: 991px) {
-  .main-content.is-open {
-    transform: translateX(var(--sidebar-width));
-  }
+  .main-content.is-open { transform: translateX(var(--sidebar-width)); }
 }
 
 /* ==========================================================================
-   3. REUSABLE COMPONENTS & SECTIONS
+   3. TYPOGRAPHY & BASE ELEMENTS
    ========================================================================== */
 section {
   padding: 60px 0;
   border-bottom: 1px solid var(--border-color);
 }
-
-section:last-of-type {
-  border-bottom: none;
-}
+section:last-of-type { border-bottom: none; }
 
 h2 {
   font-family: 'Lora', serif;
@@ -154,8 +131,8 @@ h2 {
 p {
   line-height: 1.8;
   max-width: 700px;
-  color: var(--text-secondary);
   margin-bottom: 20px;
+  color: var(--text-secondary);
 }
 
 a {
@@ -164,17 +141,16 @@ a {
   font-weight: 500;
 }
 
-/* --- Sidebar Content --- */
+/* ==========================================================================
+   4. SIDEBAR CONTENT
+   ========================================================================== */
 .sidebar-header {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
 }
-
 .sidebar-header h3 {
   font-family: 'Lora', serif;
   font-size: 1.8em;
 }
-
 .sidebar-header p {
   font-size: 0.7em;
   color: var(--text-secondary);
@@ -186,20 +162,18 @@ a {
   list-style: none;
   flex-grow: 1;
 }
-
 .sidebar-nav ul li a {
   display: block;
   padding: 12px 0;
   font-size: 1.1em;
   color: var(--text-secondary);
-  text-decoration: none;
 }
+.sidebar-nav ul li a:hover { color: var(--accent-color); }
 
-.sidebar-nav ul li a:hover {
-  color: var(--accent-color);
-}
-
-/* --- Animated Buttons & Links --- */
+/* ==========================================================================
+   5. BUTTONS & LINKS
+   ========================================================================== */
+.btn-link,
 .btn-resume,
 .project-card a {
   display: inline-block;
@@ -215,33 +189,29 @@ a {
   z-index: 1;
   transition: color 0.4s ease;
 }
-
+.btn-link::after,
 .btn-resume::after,
 .project-card a::after {
   content: '';
   position: absolute;
   z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: var(--accent-color);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease-out;
 }
-
+.btn-link:hover::after,
 .btn-resume:hover::after,
-.project-card a:hover::after {
-  transform: scaleX(1);
-}
-
+.project-card a:hover::after { transform: scaleX(1); }
+.btn-link:hover,
 .btn-resume:hover,
-.project-card a:hover {
-  color: var(--bg-secondary);
-}
+.project-card a:hover { color: var(--bg-secondary); }
 
-/* --- About & Experience --- */
+/* ==========================================================================
+   6. ABOUT & EXPERIENCE
+   ========================================================================== */
 .about-container {
   display: flex;
   flex-direction: column;
@@ -249,7 +219,6 @@ a {
   text-align: center;
   gap: 40px;
 }
-
 .profile-picture {
   width: 150px;
   height: 150px;
@@ -262,58 +231,46 @@ a {
   position: relative;
   max-width: 700px;
 }
-
 .timeline::after {
   content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 10px;
+  top: 0; bottom: 0; left: 18px;
   width: 3px;
   background: var(--border-color);
+  z-index: 0;
 }
-
+.timeline-dot {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-color);
+}
 .timeline-item {
   position: relative;
   width: 100%;
   margin-left: 10px;
   padding: 10px 20px;
 }
-
-.timeline-dot {
-  position: absolute;
-  top: 20px;
-  left: -5px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: var(--accent-color);
-  z-index: 1;
-}
-
 .timeline-date {
   font-weight: 500;
   color: var(--accent-color);
   margin-bottom: 10px;
 }
+.timeline-content h3 { margin-bottom: 10px; color: var(--text-primary); }
+.timeline-content p { margin: 0; font-size: 0.9em; }
 
-.timeline-content h3 {
-  margin-bottom: 10px;
-  color: var(--text-primary);
-}
-
-.timeline-content p {
-  margin: 0;
-  font-size: 0.9em;
-}
-
-/* --- Project Cards & Grids --- */
+/* ==========================================================================
+   7. PROJECT CARDS & GRIDS
+   ========================================================================== */
 .project-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
 }
-
 .project-card {
   padding: 25px;
   background: var(--bg-secondary);
@@ -321,99 +278,71 @@ a {
   border-radius: 8px;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
-
 .project-card:hover {
   transform: translateY(-3px);
   border-color: var(--accent-color);
 }
-
 .project-card h3 {
   font-family: 'Lora', serif;
   color: var(--accent-color);
   margin-bottom: 10px;
 }
 
-/* --- Horizontal Scroll --- */
+/* Horizontal scroll */
 .horizontal-scroll-wrapper {
   overflow-x: auto;
   white-space: nowrap;
   padding-bottom: 20px;
 }
-
-.horizontal-scroll-wrapper::-webkit-scrollbar {
-  height: 8px;
-}
-
+.horizontal-scroll-wrapper::-webkit-scrollbar { height: 8px; }
 .horizontal-scroll-wrapper::-webkit-scrollbar-track {
   background: var(--bg-secondary);
   border-radius: 4px;
 }
-
 .horizontal-scroll-wrapper::-webkit-scrollbar-thumb {
   background: var(--border-color);
   border-radius: 4px;
 }
-
 .horizontal-scroll-wrapper::-webkit-scrollbar-thumb:hover {
   background: var(--accent-color);
 }
-
 .projects-container-horizontal {
   display: inline-flex;
   gap: 30px;
   padding: 10px 0;
 }
-
 .projects-container-horizontal .project-card {
   min-width: 320px;
-  display: inline-block;
   white-space: normal;
-  vertical-align: top;
 }
 
-/* --- Project Detail Page --- */
-.project-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
+/* Project detail */
+.project-header { text-align: center; margin-bottom: 40px; }
 .project-header h1 {
   font-family: 'Lora', serif;
   font-size: 2.5em;
   margin-bottom: 20px;
 }
-
 .project-links {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
 }
-
-.project-section {
-  margin-bottom: 40px;
-}
-
+.project-section { margin-bottom: 40px; }
 .project-section h2 {
   font-size: 2em;
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-
-.project-section ul {
-  list-style-position: inside;
-  padding-left: 10px;
-}
-
+.project-section ul { list-style-position: inside; padding-left: 10px; }
 .tech-stack-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   list-style: none;
-  padding-left: 0;
 }
-
 .tech-stack-list li {
   padding: 5px 15px;
   font-size: 0.9em;
@@ -422,13 +351,14 @@ a {
   border-radius: 20px;
 }
 
-/* --- Blog Page --- */
+/* ==========================================================================
+   8. BLOG PAGE
+   ========================================================================== */
 .blog-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
 }
-
 .blog-post-card {
   padding: 30px;
   background: var(--bg-secondary);
@@ -439,57 +369,35 @@ a {
   animation: fadeInUp 0.5s ease-out forwards;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .blog-post-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
-
 .blog-post-card:nth-child(1) { animation-delay: 0.1s; }
 .blog-post-card:nth-child(2) { animation-delay: 0.2s; }
 .blog-post-card:nth-child(3) { animation-delay: 0.3s; }
-
-.blog-date {
-  font-size: 0.9em;
-  color: var(--text-secondary);
-  margin-bottom: 10px;
-}
-
+.blog-date { font-size: 0.9em; color: var(--text-secondary); margin-bottom: 10px; }
 .blog-post-card h3 {
   font-family: 'Lora', serif;
   color: var(--text-primary);
   margin-bottom: 15px;
   transition: color 0.3s ease;
 }
+.blog-post-card:hover h3 { color: var(--accent-color); }
+.blog-excerpt { color: var(--text-secondary); margin-bottom: 20px; }
+.read-more { font-weight: 700; transition: color 0.3s ease; }
+.read-more:hover { color: #fff; }
 
-.blog-post-card:hover h3 {
-  color: var(--accent-color);
-}
-
-.blog-excerpt {
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-}
-
-.read-more {
-  font-weight: 700;
-  transition: color 0.3s ease;
-}
-
-.read-more:hover {
-  color: #fff;
-}
-
-/* --- Skills Section --- */
+/* ==========================================================================
+   9. SKILLS SECTION
+   ========================================================================== */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
   list-style: none;
-  padding: 0;
 }
-
 .skills-list li {
   padding: 10px 20px;
   font-size: 0.9em;
@@ -499,140 +407,120 @@ a {
   border-radius: 5px;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
-
 .skills-list li:hover {
   transform: translateY(-3px);
   border-color: var(--accent-color);
 }
 
-/* --- Helper Classes --- */
+/* ==========================================================================
+   10. HELPER CLASSES
+   ========================================================================== */
 .page-subtitle {
   max-width: 600px;
-  margin: -20px auto 40px auto;
+  margin: -20px auto 40px;
   color: var(--text-secondary);
 }
+.cta-container { text-align: center; margin-top: 40px; }
 
-.cta-container {
-  text-align: center;
-  margin-top: 40px;
-}
-
-/* --- Footer --- */
+/* ==========================================================================
+   11. FOOTER
+   ========================================================================== */
 footer {
-  padding-top: 60px;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 60px 10%;
   text-align: center;
   color: var(--text-secondary);
   border-top: 1px solid var(--border-color);
 }
 
 /* ==========================================================================
-   4. DESKTOP & TABLET STYLES
+   12. RESPONSIVE (TABLET & DESKTOP)
    ========================================================================== */
 @media (min-width: 992px) {
-  .site-wrapper {
-    flex-direction: row;
-  }
-
-  .main-header-mobile {
-    display: none;
-  }
-
+  .site-wrapper { flex-direction: row; }
+  .main-header-mobile { display: none; }
   .sidebar-nav {
-    display: flex;
     transform: translateX(0);
     box-shadow: none;
     border-right: 1px solid var(--border-color);
   }
-
   .main-content {
     width: calc(100% - var(--sidebar-width));
     margin-left: var(--sidebar-width);
-    padding: 1px 80px 20px 80px;
+    padding: 1px 80px 20px;
     animation: slideInFromRight 0.8s ease-out;
     transform: translateX(0) !important;
   }
-
-  .about-container {
-    flex-direction: row;
-    text-align: left;
-  }
-
-  h2 {
-    font-size: 2.8em;
-  }
-
-  section {
-    padding: 80px 0;
-  }
-
-  .timeline::after {
-    left: 20px;
-  }
-
-  .timeline-item {
-    margin-left: 20px;
-    padding: 10px 40px;
-  }
-
-  .timeline-dot {
-    left: -8px;
-  }
-
+  .about-container { flex-direction: row; text-align: left; }
+  h2 { font-size: 2.8em; }
+  section { padding: 80px 0; }
+  .timeline::after { left: 20px; }
+  .timeline-item { margin-left: 20px; padding: 10px 40px; }
+  .timeline-dot { left: -8px; }
   .project-grid {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
   }
-
-  .project-header h1 {
-    font-size: 3.5em;
-  }
-
-  .sidebar-header {
-    margin-top: 0;
-  }
-
+  .project-header h1 { font-size: 3.5em; }
   .sidebar-nav ul li a {
     position: relative;
     padding-left: 15px;
   }
-
   .sidebar-nav ul li a::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 3px;
+    top: 0; left: 0;
+    height: 100%; width: 3px;
     background: var(--accent-color);
     transform: scaleY(0);
     transform-origin: center;
     transition: transform 0.3s ease-in-out;
   }
-
-  .sidebar-nav ul li a:hover::before {
-    transform: scaleY(1);
-  }
+  .sidebar-nav ul li a:hover::before { transform: scaleY(1); }
 }
 
 /* ==========================================================================
-   5. KEYFRAME ANIMATIONS
+   13. ANIMATIONS
    ========================================================================== */
 @keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ==========================================================================
+   6. SHARED FADE-IN ANIMATION (Blog, Experience, Projects)
+   ========================================================================== */
+.experience-item,
+.project-card,
+.blog-post-card {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+/* Stagger the animations for each card */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
+.project-card:nth-child(7) { animation-delay: 0.7s; }
+.project-card:nth-child(8) { animation-delay: 0.8s; }
+.project-card:nth-child(9) { animation-delay: 0.9s; }
+.project-card:nth-child(10) { animation-delay: 1s; }
+
+/* Animate Experience Timeline Items */
+.timeline-item {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.2s; }
+.timeline-item:nth-child(2) { animation-delay: 0.4s; }
+.timeline-item:nth-child(3) { animation-delay: 0.6s; }
+.timeline-item:nth-child(4) { animation-delay: 0.8s; }
+.timeline-item:nth-child(5) { animation-delay: 1s; }
