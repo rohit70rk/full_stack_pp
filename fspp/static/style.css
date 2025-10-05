@@ -1,4 +1,23 @@
 /* ==========================================================================
+   TABLE OF CONTENTS
+   ==========================================================================
+   1.  VARIABLES & GLOBAL STYLES
+   2.  TYPOGRAPHY & BASE ELEMENTS
+   3.  LAYOUT
+   4.  NAVIGATION (SIDEBAR & MOBILE)
+   5.  COMPONENTS (BUTTONS, LINKS, HELPERS)
+   6.  PAGE SECTIONS
+       - ABOUT
+       - PROJECTS
+       - EXPERIENCE
+       - BLOG
+       - SKILLS
+   7.  FOOTER
+   8.  ANIMATIONS
+   9.  RESPONSIVE (TABLET & DESKTOP)
+*/
+
+/* ==========================================================================
    1. VARIABLES & GLOBAL STYLES
    ========================================================================== */
 :root {
@@ -32,13 +51,54 @@ body.nav-is-open {
 }
 
 /* ==========================================================================
-   2. LAYOUT: SITE WRAPPER & NAVIGATION
+   2. TYPOGRAPHY & BASE ELEMENTS
+   ========================================================================== */
+section {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+section:last-of-type { border-bottom: none; }
+
+h2 {
+  font-family: 'Lora', serif;
+  font-size: 2.2em;
+  margin-bottom: 30px;
+}
+
+p {
+  line-height: 1.8;
+  max-width: 700px;
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   3. LAYOUT
    ========================================================================== */
 .site-wrapper {
   display: flex;
   flex-direction: column;
 }
 
+.main-content {
+  width: 100%;
+  padding: 1px 20px;
+  transition: transform 0.4s cubic-bezier(0.78, 0.1, 0.3, 0.9);
+}
+@media (max-width: 991px) {
+  .main-content.is-open { transform: translateX(var(--sidebar-width)); }
+}
+
+/* ==========================================================================
+   4. NAVIGATION (SIDEBAR & MOBILE)
+   ========================================================================== */
+/* --- Mobile Header --- */
 .main-header-mobile {
   position: sticky;
   top: 0;
@@ -84,6 +144,7 @@ body.nav-is-open {
 .menu-toggle.is-open .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.is-open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
+/* --- Sidebar --- */
 .sidebar-nav {
   position: fixed;
   top: 0;
@@ -104,46 +165,6 @@ body.nav-is-open {
   box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.main-content {
-  width: 100%;
-  padding: 1px 20px;
-  transition: transform 0.4s cubic-bezier(0.78, 0.1, 0.3, 0.9);
-}
-@media (max-width: 991px) {
-  .main-content.is-open { transform: translateX(var(--sidebar-width)); }
-}
-
-/* ==========================================================================
-   3. TYPOGRAPHY & BASE ELEMENTS
-   ========================================================================== */
-section {
-  padding: 60px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-section:last-of-type { border-bottom: none; }
-
-h2 {
-  font-family: 'Lora', serif;
-  font-size: 2.2em;
-  margin-bottom: 30px;
-}
-
-p {
-  line-height: 1.8;
-  max-width: 700px;
-  margin-bottom: 20px;
-  color: var(--text-secondary);
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-/* ==========================================================================
-   4. SIDEBAR CONTENT
-   ========================================================================== */
 .sidebar-header {
   margin: 20px 0 10px;
 }
@@ -170,8 +191,9 @@ a {
 }
 .sidebar-nav ul li a:hover { color: var(--accent-color); }
 
+
 /* ==========================================================================
-   5. BUTTONS & LINKS
+   5. COMPONENTS (BUTTONS, LINKS, HELPERS)
    ========================================================================== */
 .btn-link,
 .btn-resume,
@@ -205,13 +227,23 @@ a {
 .btn-link:hover::after,
 .btn-resume:hover::after,
 .project-card a:hover::after { transform: scaleX(1); }
+
 .btn-link:hover,
 .btn-resume:hover,
 .project-card a:hover { color: var(--bg-secondary); }
 
+.page-subtitle {
+  max-width: 600px;
+  margin: -20px auto 40px;
+  color: var(--text-secondary);
+}
+.cta-container { text-align: center; margin-top: 40px; }
+
+
 /* ==========================================================================
-   6. ABOUT & EXPERIENCE
+   6. PAGE SECTIONS
    ========================================================================== */
+/* --- About Section --- */
 .about-container {
   display: flex;
   flex-direction: column;
@@ -227,45 +259,7 @@ a {
   margin-bottom: 20px;
 }
 
-.timeline {
-  position: relative;
-  max-width: 700px;
-}
-.timeline::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0; left: 18px;
-  width: 3px;
-  background: var(--border-color);
-  z-index: 0;
-}
-.timeline-dot {
-  position: absolute;
-  z-index: 2;
-  top: 10px;
-  left: 2px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--accent-color);
-}
-.timeline-item {
-  position: relative;
-  width: 100%;
-  margin-left: 10px;
-  padding: 10px 20px;
-}
-.timeline-date {
-  font-weight: 500;
-  color: var(--accent-color);
-  margin-bottom: 10px;
-}
-.timeline-content h3 { margin-bottom: 10px; color: var(--text-primary); }
-.timeline-content p { margin: 0; font-size: 0.9em; }
-
-/* ==========================================================================
-   7. PROJECT CARDS & GRIDS
-   ========================================================================== */
+/* --- Projects Section --- */
 .project-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -287,8 +281,6 @@ a {
   color: var(--accent-color);
   margin-bottom: 10px;
 }
-
-/* Horizontal scroll */
 .horizontal-scroll-wrapper {
   overflow-x: auto;
   white-space: nowrap;
@@ -315,8 +307,6 @@ a {
   min-width: 320px;
   white-space: normal;
 }
-
-/* Project detail */
 .project-header { text-align: center; margin-bottom: 40px; }
 .project-header h1 {
   font-family: 'Lora', serif;
@@ -351,9 +341,44 @@ a {
   border-radius: 20px;
 }
 
-/* ==========================================================================
-   8. BLOG PAGE
-   ========================================================================== */
+/* --- Experience Section --- */
+.timeline {
+  position: relative;
+  max-width: 700px;
+}
+.timeline::before{
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 18px;
+  width: 3px;
+  background: var(--border-color);
+  z-index: 0;
+}
+.timeline-dot {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent-color);
+}
+.timeline-item {
+  position: relative;
+  width: 100%;
+  margin-left: 10px;
+  padding: 10px 20px;
+}
+.timeline-date {
+  font-weight: 500;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+.timeline-content h3 { margin-bottom: 10px; color: var(--text-primary); }
+.timeline-content p { margin: 0; font-size: 0.9em; }
+
+/* --- Blog Section --- */
 .blog-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -364,18 +389,12 @@ a {
   background: var(--bg-secondary);
   border-radius: 8px;
   border-left: 4px solid var(--accent-color);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.5s ease-out forwards;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .blog-post-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
-.blog-post-card:nth-child(1) { animation-delay: 0.1s; }
-.blog-post-card:nth-child(2) { animation-delay: 0.2s; }
-.blog-post-card:nth-child(3) { animation-delay: 0.3s; }
 .blog-date { font-size: 0.9em; color: var(--text-secondary); margin-bottom: 10px; }
 .blog-post-card h3 {
   font-family: 'Lora', serif;
@@ -388,9 +407,7 @@ a {
 .read-more { font-weight: 700; transition: color 0.3s ease; }
 .read-more:hover { color: #fff; }
 
-/* ==========================================================================
-   9. SKILLS SECTION
-   ========================================================================== */
+/* --- Skills Section --- */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
@@ -412,18 +429,9 @@ a {
   border-color: var(--accent-color);
 }
 
-/* ==========================================================================
-   10. HELPER CLASSES
-   ========================================================================== */
-.page-subtitle {
-  max-width: 600px;
-  margin: -20px auto 40px;
-  color: var(--text-secondary);
-}
-.cta-container { text-align: center; margin-top: 40px; }
 
 /* ==========================================================================
-   11. FOOTER
+   7. FOOTER
    ========================================================================== */
 footer {
   padding: 60px 10%;
@@ -433,16 +441,58 @@ footer {
 }
 
 /* ==========================================================================
-   12. RESPONSIVE (TABLET & DESKTOP)
+   8. ANIMATIONS
+   ========================================================================== */
+/* --- Keyframe Definitions --- */
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Shared Animation Applications --- */
+.timeline-item,
+.project-card,
+.blog-post-card {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+/* Stagger Project Card animations */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
+.project-card:nth-child(7) { animation-delay: 0.7s; }
+.project-card:nth-child(8) { animation-delay: 0.8s; }
+.project-card:nth-child(9) { animation-delay: 0.9s; }
+.project-card:nth-child(10) { animation-delay: 1s; }
+
+/* Stagger Blog Card animations */
+.blog-post-card:nth-child(1) { animation-delay: 0.1s; }
+.blog-post-card:nth-child(2) { animation-delay: 0.2s; }
+.blog-post-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Stagger Timeline Item animations */
+.timeline-item:nth-child(1) { animation-delay: 0.2s; }
+.timeline-item:nth-child(2) { animation-delay: 0.4s; }
+.timeline-item:nth-child(3) { animation-delay: 0.6s; }
+.timeline-item:nth-child(4) { animation-delay: 0.8s; }
+.timeline-item:nth-child(5) { animation-delay: 1s; }
+
+
+/* ==========================================================================
+   9. RESPONSIVE (TABLET & DESKTOP)
    ========================================================================== */
 @media (min-width: 992px) {
   .site-wrapper { flex-direction: row; }
-  .main-header-mobile { display: none; }
-  .sidebar-nav {
-    transform: translateX(0);
-    box-shadow: none;
-    border-right: 1px solid var(--border-color);
-  }
+  
   .main-content {
     width: calc(100% - var(--sidebar-width));
     margin-left: var(--sidebar-width);
@@ -450,17 +500,14 @@ footer {
     animation: slideInFromRight 0.8s ease-out;
     transform: translateX(0) !important;
   }
-  .about-container { flex-direction: row; text-align: left; }
-  h2 { font-size: 2.8em; }
-  section { padding: 80px 0; }
-  .timeline::after { left: 20px; }
-  .timeline-item { margin-left: 20px; padding: 10px 40px; }
-  .timeline-dot { left: -8px; }
-  .project-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+  
+  .main-header-mobile { display: none; }
+  
+  .sidebar-nav {
+    transform: translateX(0);
+    box-shadow: none;
+    border-right: 1px solid var(--border-color);
   }
-  .project-header h1 { font-size: 3.5em; }
   .sidebar-nav ul li a {
     position: relative;
     padding-left: 15px;
@@ -476,51 +523,19 @@ footer {
     transition: transform 0.3s ease-in-out;
   }
   .sidebar-nav ul li a:hover::before { transform: scaleY(1); }
+
+  section { padding: 80px 0; }
+  h2 { font-size: 2.8em; }
+  
+  .about-container { flex-direction: row; text-align: left; }
+  
+  .timeline::after { left: 20px; }
+  .timeline-item { margin-left: 20px; padding: 10px 40px; }
+  .timeline-dot { left: -8px; }
+  
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  .project-header h1 { font-size: 3.5em; }
 }
-
-/* ==========================================================================
-   13. ANIMATIONS
-   ========================================================================== */
-@keyframes slideInFromRight {
-  from { opacity: 0; transform: translateX(50px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ==========================================================================
-   6. SHARED FADE-IN ANIMATION (Blog, Experience, Projects)
-   ========================================================================== */
-.experience-item,
-.project-card,
-.blog-post-card {
-  animation: fadeInUp 0.6s ease forwards;
-  opacity: 0;
-}
-
-/* Stagger the animations for each card */
-.project-card:nth-child(1) { animation-delay: 0.1s; }
-.project-card:nth-child(2) { animation-delay: 0.2s; }
-.project-card:nth-child(3) { animation-delay: 0.3s; }
-.project-card:nth-child(4) { animation-delay: 0.4s; }
-.project-card:nth-child(5) { animation-delay: 0.5s; }
-.project-card:nth-child(6) { animation-delay: 0.6s; }
-.project-card:nth-child(7) { animation-delay: 0.7s; }
-.project-card:nth-child(8) { animation-delay: 0.8s; }
-.project-card:nth-child(9) { animation-delay: 0.9s; }
-.project-card:nth-child(10) { animation-delay: 1s; }
-
-/* Animate Experience Timeline Items */
-.timeline-item {
-  animation: fadeInUp 0.6s ease forwards;
-  opacity: 0;
-}
-
-.timeline-item:nth-child(1) { animation-delay: 0.2s; }
-.timeline-item:nth-child(2) { animation-delay: 0.4s; }
-.timeline-item:nth-child(3) { animation-delay: 0.6s; }
-.timeline-item:nth-child(4) { animation-delay: 0.8s; }
-.timeline-item:nth-child(5) { animation-delay: 1s; }
