@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Project: Google Form Clone - Rohit Kumar{% endblock %}
+
+{% block content %}
+<section id="project-detail-page">
+    <div class="container">
+        <!-- Main Project Header -->
+        <div class="project-header">
+            <h1>Google Form Clone</h1>
+        </div>
+
+        <!-- Call-to-Action Buttons -->
+        <div class="project-links">
+            <!-- This button links to the gform_home route in your Blueprint -->
+            <a href="{{ url_for('google_form.gform_home') }}" class="btn-link">Run Project</a>
+            <a href="https://github.com/rohit70rk/full_stack_pp/tree/main/fspp/projects/google_form" target="_blank" class="btn-link">View on GitHub</a>
+        </div>
+
+        <!-- Project Overview Section -->
+        <div class="project-section">
+            <h2>Project Overview</h2>
+            <p>
+                The primary goal of this project was to understand the fundamentals of web form handling. It involves creating a user-friendly interface for students to submit their information, validating the data on the backend to ensure accuracy, and preparing it for storage in a database.
+            </p>
+        </div>
+
+        <!-- Key Features Section -->
+        <div class="project-section">
+            <h2>Key Features</h2>
+            <ul>
+                <li><p><strong>Dynamic Form Generation:</strong> The form is rendered using Jinja2 templates, allowing for easy modifications.</p></li>
+                <li><p><strong>Input Validation:</strong> Server-side checks are implemented to validate fields like email, name, and student ID before processing.</p></li>
+                <li><p><strong>Data Submission Handling:</strong> A dedicated Flask route processes the submitted form data using `POST` requests.</p></li>
+                <li><p><strong>Responsive Design:</strong> The form is designed to be fully functional on both desktop and mobile devices.</p></li>
+            </ul>
+        </div>
+
+        <!-- Technology Stack Section -->
+        <div class="project-section">
+            <h2>Technology Stack</h2>
+            <p>The following technologies were used to build this project:</p>
+            <ul class="tag-list">
+                <li>Python</li>
+                <li>Flask</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>Jinja2</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

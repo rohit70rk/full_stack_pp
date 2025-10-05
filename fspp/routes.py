@@ -4,7 +4,7 @@ from fspp import app
 # --- CENTRALIZED PROJECT DATA ---
 # Add 'has_detail': False for now; set True in future when details are ready
 projects_data = [
-    {'id': 1, 'title': 'Project 1 Title', 'description': 'A short, engaging description of this project and the tech used.', 'has_detail': False},
+    {'id': 1, 'title': 'Google Form Clone', 'description': 'A project creating a Google Form for student data entry.', 'has_detail': True, 'detail_route': 'google_form.details'},
     {'id': 2, 'title': 'Project 2 Title', 'description': 'A short, engaging description of this project and the tech used.', 'has_detail': False},
     {'id': 3, 'title': 'Project 3 Title', 'description': 'A short, engaging description of this project and the tech used.', 'has_detail': False},
     {'id': 4, 'title': 'Project 4 Title', 'description': 'A short, engaging description of this project and the tech used.', 'has_detail': False},
@@ -19,11 +19,6 @@ def home():
 @app.route("/projects")
 def projects():
     return render_template('projects.html', projects=projects_data)
-
-@app.route("/project/<int:project_id>")
-def project_detail(project_id):
-    # For now, redirect to a placeholder or show a message
-    return render_template('../projects/google_form/templates/project_detail.html', project_id=project_id)
 
 @app.route("/experience")
 def experience():
