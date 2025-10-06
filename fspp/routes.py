@@ -4,8 +4,11 @@ from fspp import app
 # --- CENTRALIZED PROJECT DATA ---
 # Add 'has_detail': False for now; set True in future when details are ready
 projects_data = [
-    {'id': 1, 'title': 'Google Form Clone', 'description': 'A project creating a Google Form for student data entry.', 'has_detail': True, 'detail_route': 'google_form.details'},
-    {'id': 2, 'title': 'Project 2 Title', 'description': 'A short, engaging description of this project and the tech used.', 'has_detail': False},
+    # This is the first project (the embedded form)
+    {'id': 1, 'title': 'Embedded Google Form', 'description': 'A demonstration of embedding a live Google Form into a webpage.', 'has_detail': True, 'detail_route': 'google_form.details'},
+    # NEW: This is your second project (the clone)
+    {'id': 2, 'title': 'Google Form Clone', 'description': 'A project to replicate the functionality and style of a Google Form.', 'has_detail': True, 'detail_route': 'google_form_clone.details'},
+    
     {'id': 3, 'title': 'Project 3 Title', 'description': 'A short, engaging description of this project and the tech used.', 'has_detail': False},
     {'id': 4, 'title': 'Project 4 Title', 'description': 'A short, engaging description of this project and the tech used.', 'has_detail': False},
     {'id': 5, 'title': 'Project 5 Title', 'description': 'A short, engaging description of this project and the tech used.', 'has_detail': False},

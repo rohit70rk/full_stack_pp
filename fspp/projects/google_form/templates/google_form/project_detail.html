@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}Project: Google Form Clone - Rohit Kumar{% endblock %}
+{% block title %}Project: Embedded Google Form - Rohit Kumar{% endblock %}
 
 {% block content %}
 <section id="project-detail-page">
     <div class="container">
         <!-- Main Project Header -->
         <div class="project-header">
-            <h1>Google Form Clone</h1>
+            <h1>Embedded Google Form</h1>
         </div>
 
         <!-- Call-to-Action Buttons -->
@@ -21,7 +21,7 @@
         <div class="project-section">
             <h2>Project Overview</h2>
             <p>
-                The primary goal of this project was to understand the fundamentals of web form handling. It involves creating a user-friendly interface for students to submit their information, validating the data on the backend to ensure accuracy, and preparing it for storage in a database.
+                This project demonstrates how to Embed a live Google Form directly into a Flask web application. The goal was to integrate external services seamlessly while maintaining a consistent design and user experience within the portfolio site.
             </p>
         </div>
 
@@ -29,10 +29,10 @@
         <div class="project-section">
             <h2>Key Features</h2>
             <ul>
-                <li><p><strong>Dynamic Form Generation:</strong> The form is rendered using Jinja2 templates, allowing for easy modifications.</p></li>
-                <li><p><strong>Input Validation:</strong> Server-side checks are implemented to validate fields like email, name, and student ID before processing.</p></li>
-                <li><p><strong>Data Submission Handling:</strong> A dedicated Flask route processes the submitted form data using `POST` requests.</p></li>
-                <li><p><strong>Responsive Design:</strong> The form is designed to be fully functional on both desktop and mobile devices.</p></li>
+                <li><p><strong>Live Google Form Integration:</strong> An actual Google Form is embedded into the site using an iframe.</p></li>
+                <li><p><strong>Responsive Layout:</strong> The iframe container is styled to adapt well across desktop and mobile devices.</p></li>
+                <li><p><strong>Consistent UI:</strong> Custom CSS ensures the embedded form blends with the overall design of the portfolio.</p></li>
+                <li><p><strong>Practical Use Case:</strong> A quick and effective way to collect data (e.g., surveys, feedback, student info) without building a backend form handler.</p></li>
             </ul>
         </div>
 
@@ -42,10 +42,10 @@
             <p>The following technologies were used to build this project:</p>
             <ul class="tag-list">
                 <li>Python</li>
-                <li>Flask</li>
+                <li>Flask & Jinja2</li>
                 <li>HTML5</li>
                 <li>CSS3</li>
-                <li>Jinja2</li>
+                <li>Google Forms</li>
             </ul>
         </div>
     </div>

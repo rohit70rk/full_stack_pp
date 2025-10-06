@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Project: Google Form Clone - Rohit Kumar{% endblock %}
+
+{% block content %}
+<section id="project-detail-page">
+    <div class="container">
+        <!-- Main Project Header -->
+        <div class="project-header">
+            <h1>Google Form Clone</h1>
+        </div>
+
+        <!-- Call-to-Action Buttons -->
+        <div class="project-links">
+            <!-- This button links to the gform_home route in THIS Blueprint -->
+            <a href="{{ url_for('google_form_clone.gform_home') }}" class="btn-link">Run Project</a>
+            <a href="https://github.com/rohit70rk/full_stack_pp/tree/main/fspp/projects/google_form_clone" target="_blank" class="btn-link">View on GitHub</a>
+        </div>
+
+        <!-- Project Overview Section -->
+        <div class="project-section">
+            <h2>Project Overview</h2>
+            <p>
+                This project is a complete front-end clone of a Google Form, built from scratch to replicate its distinct visual style and user experience. The goal was to practice semantic HTML and advanced CSS, including the use of CSS variables for theming and a responsive layout that works across all devices.
+            </p>
+        </div>
+
+        <!-- Key Features Section -->
+        <div class="project-section">
+            <h2>Key Features</h2>
+            <ul>
+                <li><p><strong>Authentic Styling:</strong> Meticulously crafted CSS to match Google's color palette, typography, and layout.</p></li>
+                <li><p><strong>Interactive Elements:</strong> Includes focus states on input fields and hover effects on buttons, just like the original.</p></li>
+                <li><p><strong>Component-Based Structure:</strong> The form is built with modular "cards" for each question, making it easy to add or remove sections.</p></li>
+                <li><p><strong>Fully Responsive:</strong> The layout adapts seamlessly from mobile phones to desktop screens.</p></li>
+            </ul>
+        </div>
+
+        <!-- Technology Stack Section -->
+        <div class="project-section">
+            <h2>Technology Stack</h2>
+            <p>The following technologies were used for the frontend:</p>
+            <ul class="tag-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>Flask & Jinja2</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

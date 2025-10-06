@@ -1,0 +1,190 @@
+/* ==========================================================================
+   VARIABLES & GLOBAL STYLES
+   ========================================================================== */
+:root {
+    --gform-bg: #F0EBF8;
+    --gform-purple: #673AB7;
+    --gform-text-primary: #202124;
+    --gform-text-secondary: #5f6368;
+    --gform-border-color: #dadce0;
+    --gform-focus-color: #673AB7;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--gform-bg);
+    color: var(--gform-text-primary);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   FORM LAYOUT & CONTAINER
+   ========================================================================== */
+.form-container {
+    width: 100%;
+    max-width: 760px;
+}
+
+.form-header, .form-widget {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid var(--gform-border-color);
+    padding: 24px;
+    margin-bottom: 12px;
+}
+
+.form-header {
+    border-top: 10px solid var(--gform-purple);
+}
+
+.form-header h1 { font-size: 32px; margin-bottom: 8px; }
+.form-header p { font-size: 14px; color: var(--gform-text-secondary); margin-bottom: 16px; }
+.required-indicator { font-size: 12px; color: #d93025; }
+.required-star { color: #d93025; margin-left: 2px; }
+
+/* ==========================================================================
+   FORM WIDGETS (QUESTION CARDS)
+   ========================================================================== */
+.question-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    display: block;
+}
+
+/* ==========================================================================
+   INPUTS AND CONTROLS
+   ========================================================================== */
+.short-answer-input, .paragraph-input {
+    width: 50%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    padding: 8px 0;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    transition: border-bottom-color 0.3s ease;
+    background-color: transparent;
+}
+
+.short-answer-input:focus, .paragraph-input:focus {
+    border-bottom: 2px solid var(--gform-focus-color);
+}
+
+.paragraph-input {
+    width: 100%;
+    resize: vertical;
+}
+
+/* --- Dropdown Styling --- */
+.select-wrapper {
+    position: relative;
+    width: 50%;
+}
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--gform-border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fafafa;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+.select-wrapper::after {
+    content: '▼';
+    font-size: 12px;
+    color: var(--gform-text-secondary);
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* --- File Upload Styling --- */
+input[type="file"] {
+    font-size: 14px;
+    color: var(--gform-text-secondary);
+}
+input[type="file"]::file-selector-button {
+    background-color: white;
+    color: var(--gform-purple);
+    border: 1px solid var(--gform-border-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 16px;
+    font-weight: 500;
+}
+input[type="file"]::file-selector-button:hover {
+    background-color: #f5f5f5;
+}
+
+/* --- Checkbox Styling --- */
+.checkbox-option {
+    display: flex;
+    align-items: flex-start;
+}
+.checkbox-option input[type="checkbox"] {
+    margin-right: 12px;
+    margin-top: 2px;
+    accent-color: var(--gform-purple);
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+.checkbox-option label {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   FORM FOOTER & BUTTONS
+   ========================================================================== */
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.submit-btn {
+    background-color: var(--gform-purple);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.submit-btn:hover { background-color: #512DA8; }
+
+.clear-form-link {
+    color: var(--gform-purple);
+    background: none;
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 600px) {
+    .short-answer-input, .select-wrapper {
+        width: 100%;
+    }
+    .form-header h1 { font-size: 24px; }
+}
+

@@ -3,11 +3,15 @@ from flask import Flask
 app = Flask(__name__)
 
 # --- Blueprint Registration ---
-from fspp.projects.google_form.routes import google_form_bp
 
-# All routes in the blueprint are now prefixed with /projects/gform
+# Register the first project (the embedded form)
+from fspp.projects.google_form.routes import google_form_bp
 app.register_blueprint(google_form_bp, url_prefix='/projects/gform')
+
+# NEW: Register the second project (the clone)
+from fspp.projects.google_form_clone.routes import gform_clone_bp
+app.register_blueprint(gform_clone_bp, url_prefix='/projects/gform-clone')
+
 # --- End of Blueprint Registration ---
 
-# Import main routes AFTER app is created
 from fspp import routes
