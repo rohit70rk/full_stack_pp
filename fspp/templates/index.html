@@ -5,7 +5,15 @@
 {% block content %}
 <section id="about">
     <h2>About Me</h2>
-    <p>Hi! I’m Rohit, a passionate developer interested in Web Development, AI/ML, and IoT. My goal is to build efficient and scalable solutions that make a difference. I’m Rohit, a passionate developer interested in Web Development, AI/ML, and IoT. My goal is to build efficient and scalable solutions that make a difference.</p>
+<div class="about-container">
+        <div class="about-text">
+            <p>Hi! I’m Rohit, a passionate developer interested in Web Development, AI/ML, and IoT. My goal is to build efficient and scalable solutions that make a difference. I’m Rohit, a passionate developer interested in Web Development, AI/ML, and IoT. My goal is to build efficient and scalable solutions that make a difference. I’m Rohit, a passionate developer interested in Web Development, AI/ML, and IoT. My goal is to build efficient and scalable solutions that make a difference.</p>
+        </div>
+        <div class="about-photo-container">
+            <!-- REPLACE THIS URL with a link to your own photo -->
+            <img src="{{ url_for('static', filename='profile_photo.jpeg') }}" alt="Profile Photo" class="profile-photo">
+        </div>
+    </div>
 </section>
 
 <section id="projects-preview">

@@ -7,9 +7,10 @@
    4.  NAVIGATION (SIDEBAR & MOBILE)
    5.  COMPONENTS (BUTTONS, LINKS, HELPERS)
    6.  PAGE SECTIONS
+       - ABOUT
        - PROJECTS
         - Project Detail Page
-          - Tag List (Reusable for Skills, Tech Stack, etc.)  
+        - Tag List (Reusable for Skills, Tech Stack, etc.)  
        - EXPERIENCE
        - BLOG
    7.  FOOTER
@@ -246,6 +247,33 @@ div.sidebar-header{
    6. PAGE SECTIONS
    ========================================================================== */
 
+   /* --- About Section --- */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-text {
+  order: 2;
+  text-align: center;
+  width: 100%;
+}
+.about-text p {
+  margin-bottom: 20px;
+}
+.about-photo-container {
+  order: 1;
+  margin-bottom: 20px;
+}
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
 /* --- Projects Section --- */
 .project-grid {
   display: grid;
@@ -473,6 +501,27 @@ footer {
    9. RESPONSIVE (TABLET & DESKTOP)
    ========================================================================== */
 @media (min-width: 992px) {
+  
+  /* About section two-column layout for desktop */
+  .about-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+  .about-text {
+    order: 0;
+    flex: 1;
+    text-align: left;
+  }
+  .about-text p {
+    margin-bottom: 0;
+  }
+  .about-photo-container {
+    order: 0;
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+
   .site-wrapper { flex-direction: row; }
   
   .main-content {

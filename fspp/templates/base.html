@@ -17,7 +17,6 @@
                 <h3>Rohit Kumar</h3>
                 <p>AI Robotic<br/>Cloud & DevOps<br/>Full Stack Developer</p>
             </div>
-            <!-- UPDATED NAVIGATION LINKS -->
             <ul>
                 <li><a href="{{ url_for('home') }}">Home</a></li>
                 <li><a href="{{ url_for('projects') }}">Projects</a></li>
@@ -35,7 +34,6 @@
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </button>
-                <!-- UPDATED: This is now a clickable link -->
                 <a href="{{ url_for('home') }}" class="mobile-logo">Rohit Kumar</a>
             </div>
 
@@ -62,17 +60,33 @@
             document.body.classList.toggle('nav-is-open');
         });
 
+        // Close sidebar when a navigation link is clicked in mobile view
+        const sidebarLinks = document.querySelectorAll('.sidebar-nav ul a, .sidebar-nav .btn-resume');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // If the sidebar is open, trigger a click on the toggle to close it.
+                // This gives immediate visual feedback before the new page loads.
+                if (sidebarNav.classList.contains('is-open')) {
+                    menuToggle.click();
+                }
+            });
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                // Close the mobile menu if it's open before scrolling
+                const targetId = this.getAttribute('href');
+                
+                // The listener above will handle closing the menu if the anchor is in the sidebar.
+                // This is a fallback for anchors outside the sidebar.
                 if (sidebarNav.classList.contains('is-open')) {
                     menuToggle.click();
                 }
-                // Use a short delay to allow the menu to close before scrolling
+
+                // Delay scrolling to allow menu closing animation to finish
                 setTimeout(() => {
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    document.querySelector(targetId).scrollIntoView({
                         behavior: 'smooth'
                     });
                 }, 400);
@@ -81,4 +95,3 @@
     </script>
 </body>
 </html>
-
