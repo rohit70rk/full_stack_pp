@@ -205,11 +205,10 @@ a {
   display: inline-block;
   padding: 12px;
   border: 1px solid var(--accent-color);
-  border-radius: 5px;
+  border-radius: 20px;
   color: var(--accent-color);
   text-align: center;
   text-decoration: none;
-  transform: skewX(-20deg);
   position: relative;
   overflow: hidden;
   z-index: 1;
