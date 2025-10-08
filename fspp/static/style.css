@@ -12,7 +12,6 @@
           - Tag List (Reusable for Skills, Tech Stack, etc.)  
        - EXPERIENCE
        - BLOG
-       - SKILLS
    7.  FOOTER
    8.  ANIMATIONS
    9.  RESPONSIVE (TABLET & DESKTOP)
@@ -50,7 +49,6 @@ body {
 body.nav-is-open {
   overflow: hidden;
 }
-
 /* ==========================================================================
    2. TYPOGRAPHY & BASE ELEMENTS
    ========================================================================== */
@@ -68,7 +66,6 @@ h2 {
 
 p {
   line-height: 1.8;
-  max-width: 700px;
   margin-bottom: 20px;
   color: var(--text-secondary);
 }
@@ -104,7 +101,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 102;
-  background: var(--accent-color);
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -117,7 +115,7 @@ a {
   font-weight: 700;
   font-size: 1.8em;
   text-decoration: none;
-  color: var(--bg-color);
+  color: var(--accent-color);
   transition: transform 0.4s ease, color 0.3s ease;
 }
 .mobile-logo:hover { color: var(--accent-color); }
@@ -136,7 +134,7 @@ a {
 .menu-toggle .bar {
   width: 25px;
   height: 3px;
-  background-color: var(--bg-color);
+  background-color: var(--text-primary);
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -161,28 +159,29 @@ a {
   transition: transform 0.4s cubic-bezier(0.78, 0.1, 0.3, 0.9);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  border-right: 5px solid var(--accent-color);
 }
 .sidebar-nav.is-open {
   transform: translateX(0);
-  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.2);
 }
-
+div.sidebar-header{
+  text-align: center;
+}
 .sidebar-header {
   margin-top: 20px;
 }
 .sidebar-header h3 {
   font-family: 'Lora', serif;
-  font-size: 1.8em;
-    color: var(--accent-color);
+  font-size: 1.7em;
+  color: var(--accent-color);
 }
 .sidebar-header p {
-  font-size: 1em;
+  font-size: 0.9em;
   color: var(--text-secondary);
   margin-top: 10px;
-  line-height: 1.4;
-  text-align: center;
+  line-height: 1.2;
 }
-
 .sidebar-nav ul {
   list-style: none;
   flex-grow: 1;
@@ -263,6 +262,7 @@ a {
 .project-card:hover {
   transform: translateY(-3px);
   border-color: var(--accent-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 .project-card h3 {
   font-family: 'Lora', serif;
@@ -349,7 +349,6 @@ a {
 /* --- Experience Section --- */
 .timeline {
   position: relative;
-  max-width: 700px;
 }
 .timeline::before{
   content: '';
@@ -393,7 +392,7 @@ a {
   padding: 30px;
   background: var(--bg-secondary);
   border-radius: 20px;
-  border-left: 4px solid var(--accent-color);
+  border-left: 3px solid var(--accent-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .blog-post-card:hover {
@@ -488,8 +487,8 @@ footer {
   
   .sidebar-nav {
     transform: translateX(0);
-    box-shadow: none;
-    border-right: 1px solid var(--border-color);
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.2);
+    border-right: 5px solid var(--accent-color);
   }
   .sidebar-nav ul li a {
     position: relative;
