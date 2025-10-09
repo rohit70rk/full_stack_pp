@@ -25,20 +25,18 @@
             </ul>
             <a href="{{ url_for('static', filename='Rohit_CSE_VII_2022-26.pdf') }}" class="btn-resume" download>Download Resume</a>
         </nav>
-
+        
+    <!-- Mobile Header inside main content -->
+        <div class="main-header-mobile">
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <a href="{{ url_for('home') }}" class="mobile-logo">Rohit Kumar</a>
+        </div>
         <main class="main-content">
-            <!-- Mobile Header inside main content -->
-            <div class="main-header-mobile">
-                <button class="menu-toggle" aria-label="Open navigation menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <a href="{{ url_for('home') }}" class="mobile-logo">Rohit Kumar</a>
-            </div>
-
             {% block content %}{% endblock %}
-
             <footer>
                 <p>&copy; 2025 Rohit Kumar. All rights reserved.</p>
             </footer>
