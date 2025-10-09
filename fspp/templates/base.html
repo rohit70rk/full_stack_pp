@@ -33,7 +33,7 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <a href="{{ url_for('home') }}" class="mobile-logo">Rohit Kumar</a>
+            <a href="{{ url_for('home') }}" class="mobile-logo">Home</a>
         </div>
         <main class="main-content">
             {% block content %}{% endblock %}
@@ -47,13 +47,11 @@
         // Hamburger menu functionality
         const menuToggle = document.querySelector('.menu-toggle');
         const sidebarNav = document.querySelector('.sidebar-nav');
-        const mainContent = document.querySelector('.main-content');
         const mobileLogo = document.querySelector('.mobile-logo');
         
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('is-open');
             sidebarNav.classList.toggle('is-open');
-            mainContent.classList.toggle('is-open');
             mobileLogo.classList.toggle('is-open');
             document.body.classList.toggle('nav-is-open');
         });
