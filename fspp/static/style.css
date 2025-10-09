@@ -164,18 +164,17 @@ a {
   transform: translateX(0);
   box-shadow: 10px 0 20px rgba(0, 0, 0, 0.2);
 }
-div.sidebar-header{
-  text-align: center;
-}
 .sidebar-header h3 {
   font-family: 'Lora', serif;
   font-size: 2em;
   color: var(--accent-color);
+  text-align: center;
 }
 .sidebar-header p {
   font-size: 0.9em;
   color: var(--text-secondary);
   line-height: 1.2;
+  text-align: center;
 }
 .sidebar-nav ul {
   list-style: none;
@@ -235,7 +234,9 @@ div.sidebar-header{
   margin: -20px auto 40px;
   color: var(--text-secondary);
 }
-.cta-container { text-align: center; margin-top: 30px; }
+.cta-container {
+  text-align: center; 
+}
 
 
 /* ==========================================================================
@@ -307,7 +308,6 @@ div.sidebar-header{
 .projects-container-horizontal {
   display: inline-flex;
   gap: 30px;
-  padding: 10px 0;
 }
 .projects-container-horizontal .project-card {
   min-width: 320px;
@@ -437,6 +437,11 @@ footer {
   text-align: center;
   color: var(--text-secondary);
   border-top: 2px solid var(--border-color);
+  padding: 20px 0;
+}
+footer p {
+  text-align: center;
+  margin-bottom: 0;
 }
 
 /* ==========================================================================

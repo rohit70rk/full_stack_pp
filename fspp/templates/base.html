@@ -36,7 +36,9 @@
             <a href="{{ url_for('home') }}" class="mobile-logo">Home</a>
         </div>
         <main class="main-content">
-            {% block content %}{% endblock %}
+            <div class="content-wrapper">
+                {% block content %}{% endblock %}
+            </div>
             <footer>
                 <p>&copy; 2025 Rohit Kumar. All rights reserved.</p>
             </footer>
