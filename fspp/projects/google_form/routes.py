@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template
 
-# Create the Blueprint
 google_form_bp = Blueprint(
     'google_form',
     __name__,
@@ -8,14 +7,10 @@ google_form_bp = Blueprint(
     static_folder='static'
 )
 
-# Route for the main project page (the form itself)
-@google_form_bp.route('/')
-def gform_home():
-    return render_template('google_form/gform.html')
-
-# NEW: Dedicated route for this project's detail page
 @google_form_bp.route('/details')
 def details():
-    # Flask now automatically looks in this Blueprint's 'templates' folder.
-    # No more '../' needed!
     return render_template('google_form/project_detail.html')
+
+@google_form_bp.route('/google_form')
+def gform_home():
+    return render_template('google_form/gform.html')
