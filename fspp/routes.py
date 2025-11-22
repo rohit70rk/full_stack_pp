@@ -9,7 +9,7 @@ projects_data = [
     # NEW: This is your second project (the clone)
     {'id': 2, 'title': 'Google Form Clone', 'description': 'A project to replicate the functionality and style of a Google Form.', 'has_detail': True, 'detail_route': 'google_form_clone.details'},
     # NEW: Register the webcam project
-    {'id': 3, 'title': 'Live Webcam Viewer', 'description': 'Access and display a live webcam feed in the browser using Flask and JavaScript.', 'has_detail': True, 'detail_route': 'live_webcam.details'},
+    {'id': 3, 'title': 'Live Webcam Streaming', 'description': 'Access and display a live webcam feed in the browser using Flask and JavaScript.', 'has_detail': True, 'detail_route': 'lws_project_details'},
 
     {'id': 4, 'title': 'Project 4 Title', 'description': 'A short, engaging description of this project and the tech used.', 'has_detail': False},
     {'id': 5, 'title': 'Project 5 Title', 'description': 'A short, engaging description of this project and the tech used.', 'has_detail': False},
@@ -31,3 +31,7 @@ def experience():
 @app.route("/blog")
 def blog():
     return render_template('blog.html')
+
+@app.route("/projects/live-webcam-streamering")
+def lws_project_details():
+    return render_template('projects/lws_project_details.html')
